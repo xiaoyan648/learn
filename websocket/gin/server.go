@@ -31,12 +31,20 @@ func echo(w http.ResponseWriter, r *http.Request) {
 			log.Println("read:", err)
 			break
 		}
-		log.Printf("recv: %s", message)
-		message = append(message, []byte(" from server")...)
-		err = c.WriteMessage(mt, message)
+		res := Logic(message)
+		err = c.WriteMessage(mt, res)
 		if err != nil {
 			log.Println("write:", err)
 			break
 		}
 	}
+}
+
+func Logic(message []byte) []byte {
+	// do something
+	log.Printf("recv: %s", message)
+	var result []byte
+	result = append(result, message...)
+	result = append(result, []byte("from server")...)
+	return result
 }

@@ -1,0 +1,10 @@
+syntax = "proto3";
+option go_package = "protobuf/proto;proto";
+package proto;
+import "types/asset.proto";
+
+message Computer {
+  string name = 1;
+  types.CPU cpu = 2;
+  types.Memory memory = 3;
+}

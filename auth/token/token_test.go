@@ -51,4 +51,11 @@ func TestUpdateTokenField(t *testing.T) {
 }
 
 func TestMapClaimsToken(t *testing.T) {
+	// jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+	// 	"exp":  1682661142,
+	// 	"id":   1,
+	// 	"iat":  1682661142,
+	// 	"iss":  "test",
+	// 	"aid":  1,
+	// })
 }

@@ -3,6 +3,7 @@ package expr
 import (
 	"fmt"
 	"testing"
+	"time"
 
 	"github.com/antonmedv/expr"
 	"github.com/stretchr/testify/assert"
@@ -109,4 +110,41 @@ func ExampleExprFunctionMap() {
 	fmt.Printf("%v", output)
 
 	// Output: true
+}
+
+func ExampleFuncs() {
+	timeUnix := expr.Function(
+		"NowUnix",
+		func(params ...any) (any, error) {
+			return time.Now().Unix(), nil
+		},
+		time.Now().Unix,
+	)
+	bitAnd := expr.Function(
+		"BitAnd",
+		func(params ...any) (any, error) {
+			if len(params) != 2 {
+				return nil, fmt.Errorf("Rule error: BitAnd params length must be 2")
+			}
+			a, b := params[0].(int), params[1].(int)
+			return a & b, nil
+		},
+	)
+	program, err := expr.Compile(`(NowUnix() - register_time in 30..60) && (BitAnd(book_tag_man,2) > 0)`, timeUnix, bitAnd)
+	if err != nil {
+		panic(err)
+	}
+	tags := map[string]interface{}{
+		"register_time": time.Now().Unix() - 40,
+		"book_tag_man":  2,
+	}
+	output, err := expr.Run(program, tags)
+	if err != nil {
+		fmt.Printf("%v", err)
+		return
+	}
+
+	fmt.Printf("%v", output)
+
+	// Output:
 }

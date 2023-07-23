@@ -54,3 +54,15 @@ func (f *Filter32) IsExistByRoaring(data uint32) bool {
 func (f *Filter64) IsExistByRoaring(data uint64) bool {
 	return f.r64.Contains(data)
 }
+
+// 实现
+// roaring bitmap 作为posting list
+// 存储 redis:
+// 方案1.对于int32的数据，可通过redis 组件实现（仅支持int32）
+// 方案2.如果是int64的数据，比如雪花id，需要在内存中实现序列化到redis
+
+func SetRedisRoaringBitmap32() {
+}
+
+func SetRedisRoaringBitmap64() {
+}
