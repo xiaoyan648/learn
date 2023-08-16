@@ -6,6 +6,14 @@ import (
 	"strconv"
 )
 
+// 测试语句
+// go tool pprof -http=:9999 localhost:8080 （需要请求）
+// go tool pprof -http=:9999 localhost:8080/debug/pprof/heap （无需请求，只看初始分配）
+
+// 本地查看
+// go tool pprof http://localhost:6060/debug/pprof/profile\?seconds=10
+// go tool pprof /var/folders/qw/tz9pdkl91t9gddfxcvbjwd880000gp/T/vscode-goZNrAlt/profile-6.cpu.test
+
 // key v, value v (1 obj)
 // var m = map[[12]byte]int{}
 
