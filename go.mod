@@ -16,9 +16,9 @@ require (
 	github.com/gorilla/websocket v1.5.0
 	github.com/kelindar/bitmap v1.4.1
 	github.com/lithammer/shortuuid/v3 v3.0.7
-	github.com/lixd/grpc-go-example v0.0.0-20221016030802-421612b74aa5
 	github.com/liyuan1125/gorm-cache v1.0.2
 	github.com/stretchr/testify v1.8.2
+	github.com/zeromicro/go-zero v1.4.4
 	google.golang.org/grpc v1.54.0
 	google.golang.org/protobuf v1.30.0
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
