@@ -17,6 +17,7 @@ func ExampleBFS() {
 	// ret [i g f h e d c b a], iscrc: true
 }
 
+// 分层并发，没有达到最大并发度
 func ExampleGorup() {
 	dag1 := NewDAGDemo()
 	ret1 := GourpTasks(dag1.Vertexs[0])

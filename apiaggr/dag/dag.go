@@ -60,10 +60,11 @@ func NewDAGDemo() *DAG {
 	dag.AddEdge(vh, vi)
 	dag.AddEdge(ve, vi)
 	dag.AddEdge(vf, vi)
-	dag.AddEdge(vg, vi)
+	// dag.AddEdge(vg, vi)
 	return dag
 }
 
+// BFS 进行分层.
 func BFS(root *Vertex) ([]*Vertex, bool) {
 	// 定义结果数组
 	var (
